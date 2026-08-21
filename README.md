@@ -1,2 +1,2 @@
 ﻿# TEODOMIRO-ESTREMOS-IS-MY-NAME-
-   - [Chinese Zodiac Sign Exercise](./docs/ZodiacPotassiumEstremos.md)
+   - [Documentation](./docs/ZodiacPotassiumEstremos.md)
