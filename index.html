@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miro Estremos · Chinese Zodiac</title>
+  <style>
+    :root { --ink:#17212b; --muted:#617080; --paper:#fffaf2; --red:#b63a32; --gold:#d9a441; --line:#eadfce; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; color:var(--ink); background:radial-gradient(circle at 85% 10%, #f8df9e 0, transparent 28%), linear-gradient(135deg,#fffaf2,#f5ead8); font-family: Georgia, 'Times New Roman', serif; }
+    main { width:min(900px, calc(100% - 32px)); margin:0 auto; padding:72px 0 56px; }
+    .eyebrow { color:var(--red); font:700 12px/1.2 Arial,sans-serif; letter-spacing:.18em; text-transform:uppercase; }
+    h1 { max-width:700px; margin:14px 0 16px; font-size:clamp(42px, 8vw, 78px); line-height:.96; letter-spacing:-.045em; font-weight:500; }
+    .intro { max-width:570px; color:var(--muted); font:18px/1.6 Arial,sans-serif; }
+    .panel { margin-top:42px; padding:30px; background:rgba(255,255,255,.72); border:1px solid rgba(234,223,206,.9); border-radius:24px; box-shadow:0 18px 50px rgba(111,78,39,.1); }
+    label { display:block; margin-bottom:10px; font:700 13px Arial,sans-serif; letter-spacing:.05em; }
+    .row { display:flex; gap:12px; flex-wrap:wrap; }
+    input { flex:1 1 220px; min-height:52px; padding:0 16px; border:1px solid #d9cbb7; border-radius:12px; background:#fffdf9; color:var(--ink); font:18px Arial,sans-serif; }
+    button { min-height:52px; padding:0 24px; border:0; border-radius:12px; color:#fff; background:var(--red); cursor:pointer; font:700 15px Arial,sans-serif; transition:transform .2s, background .2s; }
+    button:hover { background:#922d28; transform:translateY(-2px); }
+    #result { min-height:32px; margin:24px 0 0; color:var(--red); font-size:25px; }
+    .invalid { color:#9b5b1f !important; font:16px/1.5 Arial,sans-serif !important; }
+    footer { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:28px; color:var(--muted); font:13px Arial,sans-serif; }
+    footer a { color:var(--red); }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Activity 3 · Selection Structure</div>
+    <h1>Find your Chinese Zodiac sign.</h1>
+    <p class="intro">Enter a birth year to calculate its sign using the traditional 12-year cycle beginning in 1900.</p>
+    <section class="panel" aria-labelledby="calculator-title">
+      <label id="calculator-title" for="year">Your birth year</label>
+      <div class="row">
+        <input id="year" type="number" min="1900" placeholder="e.g. 2001" aria-describedby="result" />
+        <button id="calculate" type="button">Calculate sign</button>
+      </div>
+      <p id="result" role="status"></p>
+    </section>
+    <footer><span>Built for Miro_Estremos</span><a href="https://github.com/tpestremos-art/Miro_Estremos" rel="noreferrer">View the source on GitHub</a></footer>
+  </main>
+  <script>
+    const signs = ['Rat (鼠 / Shǔ)','Ox (牛 / Niú)','Tiger (虎 / Hǔ)','Rabbit (兔 / Tù)','Dragon (龙 / Lóng)','Snake (蛇 / Shé)','Horse (马 / Mǎ)','Goat (羊 / Yáng)','Monkey (猴 / Hóu)','Rooster (鸡 / Jī)','Dog (狗 / Gǒu)','Pig (猪 / Zhū)'];
+    const year = document.querySelector('#year');
+    const result = document.querySelector('#result');
+    function calculate() {
+      const value = Number(year.value);
+      result.className = '';
+      if (!Number.isInteger(value) || value < 1900) {
+        result.className = 'invalid';
+        result.textContent = 'Invalid year — please enter a whole year from 1900 onward.';
+        return;
+      }
+      result.textContent = 'Your Chinese Zodiac sign is ' + signs[(value - 1900) % 12] + '.';
+    }
+    document.querySelector('#calculate').addEventListener('click', calculate);
+    year.addEventListener('keydown', event => { if (event.key === 'Enter') calculate(); });
+  </script>
+</body>
+</html>
