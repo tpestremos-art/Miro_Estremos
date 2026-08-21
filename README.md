@@ -1,2 +1,2 @@
-﻿# TEODOMIRO-ESTREMOS-IS-MY-NAME-
+﻿# Miro_Estremos
    - [Documentation](./docs/ZodiacPotassiumEstremos.md)
