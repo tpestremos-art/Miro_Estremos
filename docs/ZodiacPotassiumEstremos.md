@@ -52,7 +52,10 @@ def zodiac():
 
 x = zodiac()
 ```
-
 ## Output Screenshot
 
-![Zodiac Program Output](screenshot.png)
+**Invalid year input:**
+![Invalid Year Output](screenshot_invalid.png)
+
+**Valid year input:**
+![Valid Year Output](screenshot_valid.png)
