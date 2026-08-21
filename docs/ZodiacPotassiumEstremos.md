@@ -1,4 +1,4 @@
-# Chinese Zodiac Sign Finder
+# Activity 3: Implementing Selection Structure - Chinese Zodiac Sign
 
 ## Requirements
 Create a Python program that determines a user's Chinese Zodiac sign based on their birth year.
